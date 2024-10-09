@@ -1,0 +1,455 @@
+/* General body settings */
+/* Background animation for the whole page */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(-45deg, #ffe600, #fa0bfa,rgb(255, 166, 0), rgb(29, 129, 4));
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    opacity: 10; /* Transparency of the background animation */
+}
+
+/* Gradient Animation Keyframes */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* Navigation Bar */
+.navbar {
+    position: fixed; /* Stays at the top of the page */
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Neon Effect on Hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #00e6e6; /* Neon blue */
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-links a:hover {
+    color: #00e6e6; /* Neon hover color */
+}
+
+/* Hire Me Button in Navbar */
+.hire-me-btn {
+    background: linear-gradient(90deg, #ff6a00, #ee0979); /* Neon orange to red */
+    padding: 10px 25px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.hire-me-btn:hover {
+    background: linear-gradient(90deg, #ee0979, #ff6a00); /* Reverse gradient on hover */
+    box-shadow: 0px 0px 10px #ff6a00; /* Neon glow effect */
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Ensure the video doesn't overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Video Container */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Place behind all content */
+}
+
+video#heroVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire hero section */
+}
+
+/* Adjust the Overlay to be more transparent */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Lighter gradient to let the video show more */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), /* Top darker with 30% opacity */
+        rgba(0, 0, 0, 0.1)  /* Bottom lighter with 10% opacity */
+    );
+    z-index: 1; /* Ensures overlay is on top of the video */
+}
+
+/* Hero Text Content */
+.hero-text {
+    z-index: 2; /* Ensure the text appears above the video and overlay */
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Profile Image */
+.profile-image {
+    z-index: 2; /* Ensure the profile image is above the video and overlay */
+    margin-top: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
+
+
+
+
+/* General Styling for Text */
+.hero h1, h2 {
+    font-size: 3em;
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #ffcc00; /* Yellow neon highlight */
+}
+
+.buttons .btn {
+    padding: 15px 30px;
+    background-color: #00aaff; /* Neon blue Button */
+    border: none;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons .btn:hover {
+    background-color: #008ecc; /* Darker blue on hover */
+    box-shadow: 0px 0px 10px #00aaff; /* Neon glow on hover */
+}
+
+.hero-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0e0b1f, #1a1a2e); /* Dark gradient background */
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffcc00; /* Yellow neon color */
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #bbbbbb;
+}
+
+/* Neon Glow Decoration in the Background */
+.about::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 255, 255, 0.2); /* Neon blue glow */
+    filter: blur(100px);
+    z-index: 0;
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1b1b2f, #232529); /* Dark gradient */
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.services h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ffcc00; /* Yellow neon for consistency */
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+    padding: 30px;
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2); /* Subtle neon glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.5); /* Neon glow intensifies */
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: #00e6e6; /* Neon blue text */
+    font-size: 1.5em;
+}
+
+.service-card p {
+    color: #bbbbbb;
+    font-size: 1.1em;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 102, 0, 0.2); /* Neon orange background decoration */
+    filter: blur(100px);
+    z-index: 0;
+}
+
+
+/* Portfolio Section */
+.portfolio {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0e0b1f, #1a1a2e); /* Dark gradient */
+    color: #ffffff;
+}
+
+.portfolio h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ffcc00; /* Yellow neon */
+}
+
+.portfolio-items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    width: 30%;
+    overflow: hidden;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px #00e6e6; /* Neon blue glow on hover */
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Neon hover effect for images */
+.portfolio-item:hover img {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px #00e6e6; /* Neon blue glow */
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1a1a2e, #232529); /* Dark gradient */
+    text-align: center;
+    color: #ffffff;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ffcc00; /* Yellow neon */
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #ffffff;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact input:focus, .contact textarea:focus {
+    border-color: #00e6e6; /* Neon blue focus */
+    box-shadow: 0px 0px 10px #00e6e6; /* Neon glow effect on input focus */
+}
+
+.contact button {
+    padding: 15px 30px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #008ecc;
+    box-shadow: 0px 0px 10px #00aaff; /* Neon glow on hover */
+}
+
+/* Hire Me Section */
+.hireme {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Dark gradient background */
+    color: white;
+}
+
+.hireme h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow neon */
+}
+
+.hireme p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #bbbbbb;
+}
+
+.hireme .btn {
+    padding: 15px 30px;
+    background-color: #ff6a00; /* Neon orange */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hireme .btn:hover {
+    background-color: #ff4b3e;
+    box-shadow: 0px 0px 10px #ff6a00; /* Neon orange glow */
+}
